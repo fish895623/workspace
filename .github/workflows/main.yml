@@ -1,4 +1,10 @@
-on: [push]
+on: 
+  push:
+    branches:
+      - "!feature/*"
+  pull_request:
+    branches:
+      - "!feature/*"
 
 jobs:
   hello_world_job:
@@ -11,12 +17,4 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Hello world action step
-        uses: fish895623/workspace # Uses an action in the root directory
-        id: hello
-        with:
-          whogreet: 'Mona the Octocat'
-
-      # Use the output from the `hello` step
-      - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
-      # Need to add build status to Discord
+        run: echo "The selected color is"
