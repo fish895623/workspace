@@ -1,4 +1,10 @@
-on: [push]
+on: 
+  push:
+    branches:
+      - "!feature/*"
+  pull_request:
+    branches:
+      - "!feature/*"
 
 jobs:
   hello_world_job:
